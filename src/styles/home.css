@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  
+  .flex-four {
+    width: 3;
+    padding: 10px;
+  }
+  
+  .flex-eight {
+    flex: 9;
+    padding: 20px;
+  }
+
+  
