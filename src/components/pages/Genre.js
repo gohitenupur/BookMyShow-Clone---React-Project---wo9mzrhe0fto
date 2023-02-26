@@ -13,12 +13,16 @@ function Genres({ onSelect }) {
       .catch((error) => console.log(error));
   }, []);
 
+  const handleGenreClick = (genreId) => {
+    onSelect(genreId);
+  };
+
   return (
     <div className="genres-container">
       <h2>Genres</h2>
       <ul>
         {genres.map((genre) => (
-          <li key={genre.id} onClick={() => onSelect(genre.id)}>
+          <li key={genre.id} onClick={() => handleGenreClick(genre.id)}>
             {genre.name}
           </li>
         ))}

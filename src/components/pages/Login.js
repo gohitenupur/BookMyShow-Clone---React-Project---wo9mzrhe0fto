@@ -1,16 +1,17 @@
 import React, { useEffect, useRef } from "react";
-import Home from "./Home";
-// import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import "../../styles/login.css"
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 
     const username=useRef();
     const password=useRef();
-    // const navigate=useNavigate()
+    const navigate=useNavigate()
 
     useEffect(()=>{
         if(localStorage.getItem("token")){
-            // navigate("/")
+          navigate("/")
             
         }
     },[])
@@ -21,9 +22,13 @@ const Login = () => {
         }
         else{
             localStorage.setItem("token","userToken");
-            // navigate("/")
-            <Home/>
+            navigate("/home")
+            
         }
+    }
+
+    function hendleRegister(){
+      navigate("/register")
     }
 
   return (
@@ -32,7 +37,7 @@ const Login = () => {
       className=""
       style={{ height: "100vh" }}
     >
-       <h1>Login</h1>
+       <center><h1>Login</h1></center>
        <form action="#" >
         <input
         ref={username}
@@ -52,6 +57,9 @@ const Login = () => {
         <button onClick={login}>
             Continue to the application
         </button>
+        <br/>
+        <br/>
+       <p>New User Please  <Link to='./register'> Register </Link> first.</p>
         </form>
     </div>
     </>
